@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="FilmStudio" customModuleProvider="target">
             <connections>
+                <outlet property="activitiyIndicator" destination="x7p-a1-Vwk" id="kfo-se-GHA"/>
                 <outlet property="tableView" destination="mac-Pf-fqX" id="Kpr-gd-8Pp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,20 +20,33 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mac-Pf-fqX">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mac-Pf-fqX">
+                    <rect key="frame" x="0.0" y="44" width="415" height="809"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="x7p-a1-Vwk">
+                    <rect key="frame" x="189" y="430" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="color" systemColor="systemGray2Color"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="x7p-a1-Vwk" firstAttribute="centerX" secondItem="mac-Pf-fqX" secondAttribute="centerX" id="LCp-dU-MdR"/>
+                <constraint firstItem="x7p-a1-Vwk" firstAttribute="centerY" secondItem="mac-Pf-fqX" secondAttribute="centerY" id="PM2-dH-voN"/>
+                <constraint firstItem="mac-Pf-fqX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SBD-mC-9sM"/>
+                <constraint firstItem="mac-Pf-fqX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gXo-O0-Bd2"/>
+            </constraints>
             <point key="canvasLocation" x="630.43478260869574" y="195.53571428571428"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

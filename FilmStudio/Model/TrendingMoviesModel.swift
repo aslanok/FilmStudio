@@ -8,20 +8,21 @@
 import Foundation
 
 // MARK: - Welcome
-struct TrendingMovieModel: Codable {
+struct TrendingMovieModel: Decodable {
     let page: Int
     let results: [Movie]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
-        case page, results
+        case page = "page"
+        case results = "results"
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
 }
 
 // MARK: - Result
-struct Movie: Codable {
+struct Movie: Decodable {
     let adult: Bool
     let backdropPath: String
     let id: Int
@@ -40,35 +41,37 @@ struct Movie: Codable {
     let video: Bool?
 
     enum CodingKeys: String, CodingKey {
-        case adult
+        case adult = "adult"
         case backdropPath = "backdrop_path"
-        case id, name
+        case id = "id"
+        case name = "name"
         case originalLanguage = "original_language"
         case originalName = "original_name"
-        case overview
+        case overview = "overview"
         case posterPath = "poster_path"
         case mediaType = "media_type"
         case genreIDS = "genre_ids"
-        case popularity
+        case popularity = "popularity"
         case firstAirDate = "first_air_date"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
         case originCountry = "origin_country"
-        case title
+        case title = "title"
         case originalTitle = "original_title"
         case releaseDate = "release_date"
-        case video
+        case video = "video"
     }
 }
 
-enum MediaType: String, Codable {
+enum MediaType: String, Decodable {
     case movie = "movie"
     case tv = "tv"
 }
 
-enum OriginalLanguage: String, Codable {
+enum OriginalLanguage: String, Decodable {
     case en = "en"
     case es = "es"
     case ko = "ko"
+    case ja = "ja" // Varsayılan değer olarak "unknown" ekledik
 }
 

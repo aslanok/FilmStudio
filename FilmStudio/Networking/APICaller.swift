@@ -29,7 +29,6 @@ public class APICaller {
                 } else {
                     completionHandler(.failure(.cannotParseData))
                 }
-                
             }.resume()
             
     }
