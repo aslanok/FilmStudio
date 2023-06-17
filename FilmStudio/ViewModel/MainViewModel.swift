@@ -10,7 +10,7 @@ import Foundation
 class MainViewModel {
     
     var isLoading : Observable<Bool> = Observable(false)
-    var cellDataSource : Observable<[Movie]> = Observable(nil) // Observable(nil)
+    var cellDataSource : Observable<[MovieTableCellViewModel]> = Observable(nil) // Observable(nil)
     var dataSource : TrendingMovieModel?
 
     func numberOfSections() -> Int {
@@ -31,7 +31,6 @@ class MainViewModel {
             self?.isLoading.value = false
             switch result {
             case .success(let data) :
-                print("Top Trending counts : \(data.results.count)")
                 self?.dataSource = data
                 self?.mapCellData()
             case .failure(let error) :
@@ -41,7 +40,7 @@ class MainViewModel {
     }
     
     func mapCellData(){
-        self.cellDataSource.value = self.dataSource?.results ?? []
+        self.cellDataSource.value = self.dataSource?.results.compactMap({MovieTableCellViewModel(movie: $0)})
     }
     
     func getMovieTitle(_ movie : Movie) -> String {

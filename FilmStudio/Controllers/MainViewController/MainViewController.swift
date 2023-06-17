@@ -17,12 +17,13 @@ class MainViewController: UIViewController {
     var viewModel : MainViewModel = MainViewModel()
     
     //variables
-    var cellDataSource : [Movie] = [Movie]()
+    var cellDataSource : [MovieTableCellViewModel] = [MovieTableCellViewModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
         bindViewModel()
+        tableView.separatorStyle = .none
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -31,8 +32,7 @@ class MainViewController: UIViewController {
     }
     
     func configView(){
-        self.title = "Main View"
-        
+        self.title = "Top Trending Movies"
         setUpTableView()
     }
     
