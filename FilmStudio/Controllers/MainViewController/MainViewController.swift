@@ -59,5 +59,17 @@ class MainViewController: UIViewController {
         }
         
     }
+    
+    func openDetail(movieId : Int){
+        guard let movie = viewModel.retriveMovie(with: movieId) else {
+            return
+        }
+        let detailsViewModel = DetailsMovieViewModel(movie: movie)
+        let detailsViewController = DetailsMovieViewController(viewModel: detailsViewModel)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(detailsViewController, animated: true)
+        }
+    }
+    
 
 }
